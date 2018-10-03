@@ -1,14 +1,17 @@
 {
   "name": "@isnifer/vue-hot-env",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Basic App to start working with Vue",
+  "main": "src/index.js",
   "scripts": {
-    "start": "webpack-dev-server --inline --hot"
+    "start": "webpack-dev-server --inline --hot",
+    "devtools": "npx vue-devtools"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "vue"
+  ],
+  "author": "Anton Kuznetsov <isnifer@gmail.com> (https://github.com/isnifer)",
+  "license": "MIT",
   "dependencies": {
     "@vue/babel-preset-app": "^3.0.4",
     "lodash": "^4.17.11",
@@ -21,6 +24,7 @@
     "@babel/polyfill": "^7.0.0",
     "@babel/preset-env": "^7.1.0",
     "@babel/register": "^7.0.0",
+    "@vue/devtools": "^4.1.5",
     "babel-loader": "^8.0.4",
     "vue-loader": "^15.4.2",
     "vue-template-compiler": "^2.5.17",

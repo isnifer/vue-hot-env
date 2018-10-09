@@ -40,12 +40,12 @@ export default {
   },
 
   mounted() {
-    this.load_posts()
+    this.loadPosts()
   },
 
   methods: {
     ...mapActions('main', [
-      'load_posts',
+      'loadPosts',
     ]),
   },
 

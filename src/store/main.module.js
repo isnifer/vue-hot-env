@@ -1,4 +1,4 @@
-import snakeCase from 'lodash/snakeCase'
+import camelCase from 'lodash/camelCase'
 
 const LOAD_POSTS = 'LOAD_POSTS'
 
@@ -19,7 +19,7 @@ export const initialState = {
 }
 
 export const actions = {
-  [snakeCase(LOAD_POSTS)]({ commit }) {
+  [camelCase(LOAD_POSTS)]({ commit }) {
     return MyPostsService.get()
       .then((posts) => {
         commit(LOAD_POSTS, posts)

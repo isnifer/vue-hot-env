@@ -1,16 +1,17 @@
 <template>
   <div id="app">
     <div v-for="post of posts">
-      <div @click="handleItemClick(post)" v-if="post.id !== 4">
-        {{ post.id }}. {{ post.name }}
-      </div>
+      {{ post.id }} {{ post.name }}
     </div>
   </div>
 </template>
 
 <script>
+import { mapActions, mapState } from 'vuex'
+
 export default {
   name: 'Main',
+<<<<<<< HEAD
   data() {
     return {
       posts: [
@@ -30,6 +31,30 @@ export default {
       console.log({ id, name })
     }
   },
+=======
+
+  data() {
+    return {
+      name: 'lol',
+    }
+  },
+
+  mounted() {
+    this.load_posts()
+  },
+
+  methods: {
+    ...mapActions('main', [
+      'load_posts',
+    ]),
+  },
+
+  computed: {
+    ...mapState('main', [
+      'posts',
+    ]),
+  }
+>>>>>>> Add load_posts
 }
 </script>
 

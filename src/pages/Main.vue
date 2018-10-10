@@ -1,40 +1,42 @@
-<template>
-  <div id="app">
-    <div v-for="post of posts">
-      {{ post.id }} {{ post.name }}
-    </div>
-  </div>
-</template>
-
 <script>
-import { mapActions, mapState } from 'vuex'
+import Vue from 'vue'
+import Component from 'vue-class-component'
+import Test from '../components/Test'
 
-export default {
-  name: 'Main',
+@Component
+export default class App extends Vue {
+  mounted () {
+    this.greet()
+  }
 
-  data() {
-    return {
-      name: 'lol',
+  // computed
+  get computedMsg () {
+    return 'computed ' + this.msg
+  }
+
+  greet () {
+    console.log('greeting')
+  }
+
+  handleClick(event, a, b, c) {
+    console.log(this)
+  }
+
+  render(h) {
+    const props = {
+      message: 'Hello World',
     }
-  },
 
-  mounted() {
-    this.loadPosts()
-  },
-
-  methods: {
-    ...mapActions('main', [
-      'loadPosts',
-    ]),
-  },
-
-  computed: {
-    ...mapState('main', [
-      'posts',
-    ]),
+    return (
+      <div>
+        <Test props={props} />
+        <button
+          type="button"
+          onClick={this.handleClick}>
+          Click Me
+        </button>
+      </div>
+    )
   }
 }
 </script>
-
-<style>
-</style>

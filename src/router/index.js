@@ -3,23 +3,27 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
+const Main = () => import('../pages/Main')
+const Home = () => import('../pages/Home')
+const Login = () => import('../pages/Login')
+
 export default new Router({
   routes: [
     {
       path: '/',
-      component: () => import('../pages/Main'),
+      component: Main,
       children: [
         {
           path: '',
           name: 'home',
-          component: () => import('../pages/Home')
+          component: Home,
         },
       ]
     },
     {
       name: 'login',
       path: '/login',
-      component: () => import('../pages/Login')
+      component: Login,
     },
   ]
 })

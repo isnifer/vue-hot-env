@@ -14,7 +14,7 @@ export default class App extends Vue {
     return 'computed ' + this.msg
   }
 
-  greet () {
+  greet() {
     console.log('greeting')
   }
 

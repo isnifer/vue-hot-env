@@ -1,26 +1,17 @@
 <script>
-import Vue from 'vue'
-import Component from 'vue-class-component'
-import PropTypes from '@znck/prop-types'
-
-@Component({
+export default {
   props: {
-    props: PropTypes.shape({
-      message: PropTypes.string.isRequired,
-    }),
-  }
-})
-export default class Test extends Vue {
-  mounted() {
-    console.log('Hello, Anton!')
-  }
+    message: String,
+    color: String,
+    backgroundColor: String,
+  },
 
-  render(h, context) {
-    console.log(context)
-
+  render() {
     return (
-      <div>{this.props.message}</div>
+      <h1 style={{ color: this.color, backgroundColor: this.backgroundColor }}>
+        {this.message}
+      </h1>
     )
-  }
+  },
 }
 </script>

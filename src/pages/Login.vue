@@ -1,14 +1,7 @@
-<template>
-  <div id="app">
-    Login
-  </div>
-</template>
-
 <script>
 export default {
-  name: 'Login',
+  render() {
+    return <div>Login</div>
+  },
 }
 </script>
-
-<style>
-</style>

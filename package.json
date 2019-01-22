@@ -4,51 +4,68 @@
   "description": "Basic App to start working with Vue",
   "main": "src/index.js",
   "scripts": {
-    "start": "NODE_ENV=development webpack-dev-server --inline --hot"
+    "start": "NODE_ENV=development webpack-dev-server --inline --hot",
+    "lint": "eslint --ext .js,.vue src/"
   },
   "keywords": [
     "vue"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isnifer/vue-hot-env.git"
+  },
   "author": "Anton Kuznetsov <isnifer@gmail.com> (https://github.com/isnifer)",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/isnifer/vue-hot-env/issues"
+  },
+  "homepage": "https://github.com/isnifer/vue-hot-env#readme",
   "dependencies": {
-    "@vue/babel-preset-app": "^3.0.4",
-    "@znck/prop-types": "^0.3.4",
     "lodash": "^4.17.11",
-    "vue": "^2.5.17",
-    "vue-router": "^3.0.1",
-    "vuex": "^3.0.1"
+    "vue": "^2.5.22",
+    "vue-router": "^3.0.2",
+    "vuex": "^3.1.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.1.2",
-    "@babel/plugin-proposal-class-properties": "^7.1.0",
-    "@babel/plugin-proposal-decorators": "^7.1.2",
-    "@babel/polyfill": "^7.0.0",
-    "@babel/preset-env": "^7.1.0",
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.3.0",
+    "@babel/plugin-proposal-decorators": "^7.3.0",
+    "@babel/plugin-proposal-export-default-from": "^7.2.0",
+    "@babel/plugin-proposal-export-namespace-from": "^7.2.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.3.1",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/plugin-syntax-jsx": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.2.0",
+    "@babel/polyfill": "^7.2.5",
+    "@babel/preset-env": "^7.3.1",
     "@babel/register": "^7.0.0",
-    "@vue/test-utils": "^1.0.0-beta.25",
-    "@detools/eslint-config": "^1.0.0",
+    "@babel/runtime": "^7.3.1",
+    "@detools/eslint-config-vue": "^1.0.10",
+    "@vue/test-utils": "^1.0.0-beta.28",
+    "babel-eslint": "^10.0.1",
     "babel-helper-vue-jsx-merge-props": "^2.0.3",
-    "babel-loader": "^8.0.4",
-    "babel-plugin-syntax-jsx": "^6.18.0",
-    "babel-plugin-transform-vue-jsx": "^3.7.0",
-    "babel-preset-env": "^1.7.0",
-    "eslint": "^5.6.1",
-    "eslint-plugin-vue": "^5.0.0-beta.3",
-    "vue-class-component": "^6.2.0",
-    "vue-loader": "^15.4.2",
-    "vue-template-compiler": "^2.5.17",
-    "webpack": "^4.20.2",
-    "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.9"
+    "babel-loader": "^8.0.5",
+    "babel-plugin-dynamic-import-node": "^2.2.0",
+    "babel-plugin-jsx-v-model": "^2.0.3",
+    "babel-plugin-lodash": "^3.3.4",
+    "babel-plugin-transform-vue-jsx": "^4.0.1",
+    "babel-plugin-vue-jsx-sync": "0.0.5",
+    "css-loader": "^2.1.0",
+    "eslint": "^5.12.1",
+    "less": "^3.9.0",
+    "less-loader": "^4.1.0",
+    "mini-css-extract-plugin": "^0.5.0",
+    "prettier": "^1.16.0",
+    "style-loader": "^0.23.1",
+    "vue-loader": "^15.5.1",
+    "vue-template-compiler": "^2.5.22",
+    "webpack": "^4.29.0",
+    "webpack-cli": "^3.2.1",
+    "webpack-dev-server": "^3.1.14"
   },
   "eslintConfig": {
     "extends": [
-      "@detools/eslint-config",
-      "plugin:vue/essential"
-    ],
-    "rules": {
-      "no-param-reassign": "off"
-    }
+      "@detools/eslint-config-vue"
+    ]
   }
 }

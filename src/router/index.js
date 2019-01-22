@@ -18,12 +18,12 @@ export default new Router({
           name: 'home',
           component: Home,
         },
-      ]
+      ],
     },
     {
       name: 'login',
       path: '/login',
       component: Login,
     },
-  ]
+  ],
 })

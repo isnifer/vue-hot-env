@@ -1,42 +1,75 @@
 <script>
-import Vue from 'vue'
-import Component from 'vue-class-component'
 import Test from '../components/Test'
 
-@Component
-export default class App extends Vue {
-  mounted () {
-    this.greet()
-  }
-
-  // computed
-  get computedMsg () {
-    return 'computed ' + this.msg
-  }
-
-  greet() {
-    console.log('greeting')
-  }
-
-  handleClick(event, a, b, c) {
-    console.log(this)
-  }
-
-  render(h) {
-    const props = {
-      message: 'Hello World',
+export default {
+  data() {
+    return {
+      color: this.getColor(),
+      backgroundColor: this.getColor(),
     }
+  },
 
+  computed: {
+    welcomeMessage() {
+      return 'Hello World'
+    },
+  },
+
+  methods: {
+    getColor() {
+      return `#${Math.floor(Math.random() * 16777215).toString(16)}`
+    },
+
+    handleClick() {
+      this.color = this.getColor()
+      this.backgroundColor = this.getColor()
+    },
+  },
+
+  render() {
     return (
-      <div>
-        <Test props={props} />
-        <button
-          type="button"
-          onClick={this.handleClick}>
+      <div class="app">
+        <Test
+          message={this.welcomeMessage}
+          color={this.color}
+          backgroundColor={this.backgroundColor}
+        />
+        <button type="button" class="button" onClick={this.handleClick}>
           Click Me
         </button>
       </div>
     )
-  }
+  },
 }
 </script>
+
+<style scoped lang="less">
+.app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #689f38;
+  height: 100%;
+}
+
+.button {
+  display: block;
+  width: 150px;
+  height: 80px;
+  background-color: #ff5252;
+  color: #ffffff;
+  font-size: 24px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.8);
+  outline: none;
+  position: relative;
+
+  &:active {
+    top: 2px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+  }
+}
+</style>

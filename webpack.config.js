@@ -1,5 +1,8 @@
 const path = require('path')
 const { VueLoaderPlugin } = require('vue-loader')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+
+const IS_PRODUCTION = process.env.NODE_ENV === 'production'
 
 module.exports = {
   mode: 'development',
@@ -13,31 +16,37 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.vue'],
     alias: {
-      'vue$': 'vue/dist/vue.esm.js',
+      vue$: 'vue/dist/vue.esm.js',
     },
   },
 
   // Source maps support ('inline-source-map' also works)
   devtool: 'source-map',
 
-  // Add the loader for .ts files.
   module: {
     rules: [
       {
         test: /\.vue$/,
         loader: 'vue-loader',
+        include: path.resolve(__dirname, 'src'),
       },
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: path.resolve(__dirname, 'src')
+        include: path.resolve(__dirname, 'src'),
+      },
+      {
+        test: /\.less$/,
+        use: [
+          !IS_PRODUCTION ? 'style-loader' : MiniCssExtractPlugin.loader, // CommonJS => Style nodes
+          'css-loader', // CSS => CommonJS
+          'less-loader', // Less => CSS
+        ],
       },
     ],
   },
 
-  plugins: [
-    new VueLoaderPlugin(),
-  ],
+  plugins: [new VueLoaderPlugin()],
 
   target: 'web', // enum
 

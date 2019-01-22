@@ -3,6 +3,12 @@ const { VueLoaderPlugin } = require('vue-loader')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const IS_PRODUCTION = process.env.NODE_ENV === 'production'
+const productionPlugins = [
+  new MiniCssExtractPlugin({
+    filename: '[name].css',
+    chunkFilename: '[id].css',
+  }),
+]
 
 module.exports = {
   mode: 'development',
@@ -46,7 +52,9 @@ module.exports = {
     ],
   },
 
-  plugins: [new VueLoaderPlugin()],
+  plugins: [new VueLoaderPlugin()].concat(
+    IS_PRODUCTION ? productionPlugins : []
+  ),
 
   target: 'web', // enum
 
